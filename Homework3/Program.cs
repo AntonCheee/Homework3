@@ -19,6 +19,7 @@ namespace Homework3
         public static double Task1(double number, double degree)
         {
             double result = 1;
+
             if (degree >= 1 && (degree % 1 == 0))
             {
                 for (int i = 1; i <= degree; i++)
@@ -143,19 +144,19 @@ namespace Homework3
             return result;
         }
 
-        private static int Task6(int a)
+        private static int Task6(int position)
         {
             int n1 = 1;
             int n2 = 1;
             int n = 0;
-            for (int i = 2; i < a; i++)
+            for (int i = 2; i < position; i++)
             {
                 n = n1 + n2;
                 n1 = n2;
                 n2 = n;
             }
 
-            return n; ;
+            return n;
         }
 
         private static int Task7(int a, int b)
@@ -201,7 +202,8 @@ namespace Homework3
                     {
                         break;
                     }
-                } while (true);
+                }
+                while (true);
             }
             else
             {
@@ -217,7 +219,8 @@ namespace Homework3
                     {
                         break;
                     }
-                } while (true);
+                }
+                while (true);
             }
 
             double a = rangeStart;
@@ -247,6 +250,7 @@ namespace Homework3
         public static int Task9(int number)
         {
             int countOddDigits = 0;
+
             do
             {
                 int remainder = number % 10;
@@ -262,7 +266,7 @@ namespace Homework3
         }
 
         public static int Task10(int number)
-        {           
+        {
             int reversedNumber = 0;
 
             while (number>0)
@@ -328,7 +332,6 @@ namespace Homework3
                     number = number / 10;
                 }
                 while (number != 0);
-
                
                 if (countEven > countOdd)
                 {
@@ -353,9 +356,12 @@ namespace Homework3
                 while (tempNumber2 > 0)
                 {
                     int remainder2 = tempNumber2 % 10;
-                    if (remainder1 == remainder2) {                        
+
+                    if (remainder1 == remainder2) 
+                    {
                         return "ДА";
                     }
+
                     tempNumber2 /= 10;
                 };
 
