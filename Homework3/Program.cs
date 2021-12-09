@@ -1,4 +1,5 @@
 ﻿using System;
+using BenchmarkDotNet.Attributes;
 
 namespace Homework3
 {
@@ -12,7 +13,7 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //}
 
-            var result = Task3(5);
+            var result = Task5(5, 3);
             Console.WriteLine(result);
         }
 
@@ -51,6 +52,7 @@ namespace Homework3
             return resultList;
         }
 
+        [Benchmark]
         private static int Task3(double number)
         {
             for (int i = 0; i <= number; ++i)
@@ -146,41 +148,22 @@ namespace Homework3
         private static double Task8(double number)
         {
             double rangeStart = 0;
-            double rangeEnd;
-            if (number >= 0)
+            double rangeEnd = 1;
+
+            do
             {
-                rangeEnd = 1;
-                do
+                if ((rangeEnd * rangeEnd * rangeEnd) < number)
                 {
-                    if ((rangeEnd * rangeEnd * rangeEnd) < number)
-                    {
-                        rangeStart = rangeEnd;
-                        ++rangeEnd;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    rangeStart = rangeEnd;
+                    ++rangeEnd;
                 }
-                while (true);
-            }
-            else
-            {
-                rangeEnd = -1;
-                do
+                else
                 {
-                    if ((rangeEnd * rangeEnd * rangeEnd) > number)
-                    {
-                        rangeStart = rangeEnd;
-                        --rangeEnd;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    break;
                 }
-                while (true);
             }
+            while (true);
+
 
             double precision;
             double result;
