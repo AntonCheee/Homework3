@@ -12,7 +12,7 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //    }
 
-            var result = Task4(974, 435);
+            var result = Task4(8);
             Console.WriteLine(result);
         }
 
@@ -118,6 +118,7 @@ namespace Homework3
                 if (number % (--divider) == 0)
                 {
                     result = divider;
+                    break;
                 }
             }
             while (divider != 1);
