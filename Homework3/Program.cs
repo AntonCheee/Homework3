@@ -24,14 +24,14 @@ namespace Homework3
             {
                 for (int i = 1; i <= degree; i++)
                 {
-                    result = result * number;
+                    result *= number;
                 }
             }
             else if (degree < -1 && degree % 1 == 0)
             {
                 for (int i = 1; i <= Math.Abs(degree); i++)
                 {
-                    result = result * number;
+                    result *= number;
                     if (i == Math.Abs(degree))
                     {
                         result = 1 / result;
@@ -261,7 +261,7 @@ namespace Homework3
                 {
                     ++countOddDigits;
                 }
-                number = number / 10;
+                number /= 10;
             }
             while (number != 0);
 
@@ -303,7 +303,7 @@ namespace Homework3
                     {
                         ++countOdd;
                     }
-                    number = number / 10;
+                    number /= 10;
                 }
                 while (number != 0);
 
