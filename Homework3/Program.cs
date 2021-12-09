@@ -12,7 +12,7 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //}
 
-            var result = Task7(66, 22);
+            var result = Task3(5);
             Console.WriteLine(result);
         }
 
@@ -20,23 +20,9 @@ namespace Homework3
         {
             double result = 1;
 
-            if (degree > 0)
+            for (int i = 1; i <= degree; i++)
             {
-                for (int i = 1; i <= degree; i++)
-                {
-                    result *= number;
-                }
-            }
-            else if (degree < 0)
-            {
-                for (int i = 1; i <= Math.Abs(degree); i++)
-                {
-                    result *= number;
-                    if (i == Math.Abs(degree))
-                    {
-                        result = 1 / result;
-                    }
-                }
+                result *= number;
             }
 
             return result;
@@ -46,11 +32,10 @@ namespace Homework3
         {
             int countNumber = 0;
             int rangeMinValue = number;
-            int rangeMaxValue = 1000;
+            int rangeMaxValue = 100;
 
-            while (rangeMinValue <= rangeMaxValue)
+            for (int i = rangeMinValue; i <= rangeMaxValue; i += number)
             {
-                rangeMinValue += number;
                 ++countNumber;
             }
 
@@ -58,42 +43,25 @@ namespace Homework3
 
             rangeMinValue = number;
 
-            do
+            for (int i = rangeMinValue; i <= rangeMaxValue; i += number)
             {
-                resultList[--countNumber] = rangeMinValue;
-                rangeMinValue += number;
+                resultList[--countNumber] = i;
             }
-            while (rangeMinValue <= rangeMaxValue);
 
             return resultList;
         }
 
         private static int Task3(double number)
         {
-            var result = 0;
-
-            for (int i = 1; i <= number; ++i)
+            for (int i = 0; i <= number; ++i)
             {
-                if (i * i < number)
+                if (i * i >= number)
                 {
-                    result++;
-                }
-                else
-                {
-                    break;
+                    return (i - 1);
                 }
             }
 
-            return result;
-        }
-
-        private static int Task3WithoutLoop(double number)
-        {
-            var sqrt = Math.Sqrt(number);
-            var additional = (sqrt % 1) == 0 ? 1 : 0;
-            var count = (int)Math.Floor(sqrt) - additional;
-
-            return count;
+            return 0;
         }
 
         private static int Task4(int number)
@@ -244,7 +212,7 @@ namespace Homework3
             {
                 int remainder = number % 10;
 
-                if (remainder % 2 != 0)
+                if (remainder % 2 == 1)
                 {
                     ++countOddDigits;
                 }
