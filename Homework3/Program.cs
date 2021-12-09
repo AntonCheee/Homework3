@@ -20,14 +20,14 @@ namespace Homework3
         {
             double result = 1;
 
-            if (degree >= 1 && (degree % 1 == 0))
+            if (degree >= 1 && degree % 1 == 0)
             {
                 for (int i = 1; i <= degree; i++)
                 {
                     result = result * number;
                 }
             }
-            else if (degree < -1 && (degree % 1 == 0))
+            else if (degree < -1 && degree % 1 == 0)
             {
                 for (int i = 1; i <= Math.Abs(degree); i++)
                 {
