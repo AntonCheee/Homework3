@@ -12,8 +12,8 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //    }
 
-            //var result = Task12(974, 546);
-            //Console.WriteLine(result);
+            var result = Task8(974.56);
+            Console.WriteLine(result);
         }
 
         public static double Task1(double number, double degree)
@@ -225,29 +225,27 @@ namespace Homework3
                 }
                 while (true);
             }
-
-            double a = rangeStart;
-            double b = rangeEnd;
+            
             double precision;
-            double x;
+            double result;
 
             do
             {
-                x = (a + b) / 2;
-                precision = Math.Abs(x * x * x - number);
+                result = (rangeStart + rangeEnd) / 2;
+                precision = Math.Abs(result * result * result - number);
 
-                if (((a * a * a - number) * (x * x * x - number)) > 0)
+                if (((rangeStart * rangeStart * rangeStart - number) * (result * result * result - number)) > 0)
                 {
-                    a = x;
+                    rangeStart = result;
                 }
                 else
                 {
-                    b = x;
+                    rangeEnd = result;
                 }
             }
             while (precision > 0.0001);
 
-            return x;
+            return result;
         }
 
         public static int Task9(int number)
