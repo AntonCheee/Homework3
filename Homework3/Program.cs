@@ -120,7 +120,7 @@ namespace Homework3
                     result = divider;
                 }
             }
-            while (number < 0);
+            while (divider != 1);
 
             return result;
         }
