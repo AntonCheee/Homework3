@@ -12,7 +12,7 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //    }
 
-            //var result = Task12(97, 546);
+            //var result = Task12(974, 546);
             //Console.WriteLine(result);
         }
 
@@ -351,6 +351,7 @@ namespace Homework3
         {
             int number1Abs = Math.Abs(number1);
             int number2Abs = Math.Abs(number2);
+            string result = "НЕТ";
 
             while (number1Abs > 0)
             {
@@ -363,7 +364,8 @@ namespace Homework3
 
                     if (remainder1 == remainder2)
                     {
-                        return "ДА";
+                        result = "ДА";
+                        break;
                     }
 
                     tempNumber2 /= 10;
@@ -372,7 +374,7 @@ namespace Homework3
                 number1Abs /= 10;
             };
 
-            return "НЕТ";
+            return result;
         }
 
         private static void Swap(ref int a, ref int b)
