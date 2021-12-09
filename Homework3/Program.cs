@@ -32,7 +32,7 @@ namespace Homework3
         {
             int countNumber = 0;
             int rangeMinValue = number;
-            int rangeMaxValue = 100;
+            int rangeMaxValue = 1000;
 
             for (int i = rangeMinValue; i <= rangeMaxValue; i += number)
             {
