@@ -6,28 +6,28 @@ namespace Homework3
     {
         static void Main()
         {
-            //var result = Task2(81);
+            //var result = Task2(12);
             //for (int i = 0; i < result.Length; i++)
             //{
             //    Console.WriteLine(result[i]);
-            //    }
+            //}
 
-            var result = Task4(22);
+            var result = Task7(66, 22);
             Console.WriteLine(result);
         }
 
-        public static double Task1(double number, double degree)
+        public static double Task1(double number, int degree)
         {
             double result = 1;
 
-            if (degree >= 1 && degree % 1 == 0)
+            if (degree > 0)
             {
                 for (int i = 1; i <= degree; i++)
                 {
                     result *= number;
                 }
             }
-            else if (degree < -1 && degree % 1 == 0)
+            else if (degree < 0 )
             {
                 for (int i = 1; i <= Math.Abs(degree); i++)
                 {
@@ -38,14 +38,6 @@ namespace Homework3
                     }
                 }
             }
-            else if (degree == 0)
-            {
-                result = 1;
-            }
-            else
-            {
-                result = Math.Pow(number, degree);
-            }
 
             return result;
         }
@@ -53,49 +45,46 @@ namespace Homework3
         public static int[] Task2(int number)
         {
             int countNumber = 0;
-            int rangeMinValue = 1;
+            int rangeMinValue = number;
             int rangeMaxValue = 1000;
 
-            for (int i = rangeMinValue; i <= rangeMaxValue; i++)
+            while (rangeMinValue <= rangeMaxValue)
             {
-                if (i % number == 0)
-                {
-                    ++countNumber;
-                }
+                rangeMinValue += number;
+                ++countNumber;
             }
 
             int[] resultList = new int[countNumber];
 
-            for (int i = rangeMinValue; i <= rangeMaxValue; i++)
+            rangeMinValue = number;
+
+            do
             {
-                if (i % number == 0)
-                {
-                    --countNumber;
-                    resultList[countNumber] = i;
-                }
+                resultList[--countNumber] = rangeMinValue;
+                rangeMinValue += number;
             }
+            while (rangeMinValue <= rangeMaxValue);
 
             return resultList;
         }
 
         private static int Task3(double number)
         {
-            int minNumber = (int)Math.Sqrt(number / 2); //здесь вместо 2 может быть любое число >1, чем ближе оно 1 тем меньшее кол-во итераций цикла понадобится, при =1 вырождается во второй вариант решения
+            var result = 0;
 
-            while (true)
+            for (int i = 1; i <= number; ++i)
             {
-                if (minNumber * minNumber < number)
+                if (i * i < number)
                 {
-                    ++minNumber;
+                    result++;
                 }
                 else
                 {
-                    --minNumber;
                     break;
                 }
             }
 
-            return minNumber;
+            return result;
         }
 
         private static int Task3WithoutLoop(double number)
@@ -166,24 +155,24 @@ namespace Homework3
             {
                 Swap(ref a, ref b);
             }
+            
+            int result = 1;
 
-            int remainder;
-            do
+            while (true)
             {
-                remainder = a % b;
-                if (b > remainder && remainder != 0)
+                int remainder = a % b;
+
+                a = b;
+                b = remainder;
+
+                if (remainder == 0)
                 {
-                    a = b;
-                    b = remainder;
-                }
-                else
-                {
-                    a = remainder;
+                    result = a;
+                    break;
                 }
             }
-            while (remainder != 0);
 
-            return b;
+            return result;
         }
 
         private static double Task8(double number)
@@ -254,10 +243,12 @@ namespace Homework3
             do
             {
                 int remainder = number % 10;
+
                 if (remainder % 2 != 0)
                 {
                     ++countOddDigits;
                 }
+
                 number /= 10;
             }
             while (number != 0);
@@ -344,11 +335,11 @@ namespace Homework3
             return listEvenNumbers;
         }
 
-        public static string Task12(int number1, int number2)
+        public static bool Task12(int number1, int number2)
         {
             int number1Abs = Math.Abs(number1);
             int number2Abs = Math.Abs(number2);
-            string result = "НЕТ";
+            bool result = false;
 
             while (number1Abs > 0)
             {
@@ -361,7 +352,7 @@ namespace Homework3
 
                     if (remainder1 == remainder2)
                     {
-                        result = "ДА";
+                        result = false;
                         break;
                     }
 
