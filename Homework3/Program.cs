@@ -12,7 +12,7 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //    }
 
-            var result = Task8(974.56);
+            var result = Task4(974, 435);
             Console.WriteLine(result);
         }
 
@@ -108,20 +108,19 @@ namespace Homework3
         }
 
 
-        private static int Task4(int a)
+        private static int Task4(int number)
         {
-            int number = 1;
             int result = 1;
+            int divider = number;
 
             do
             {
-                ++number;
-                if (a % number == 0 && number < a)
+                if (number % (--divider) == 0)
                 {
-                    result = number;
+                    result = divider;
                 }
             }
-            while (number < a);
+            while (number < 0);
 
             return result;
         }
