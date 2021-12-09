@@ -38,7 +38,7 @@ namespace Homework3
                     }
                 }
             }
-            else if(degree == 0)
+            else if (degree == 0)
             {
                 result = 1;
             }
@@ -80,7 +80,7 @@ namespace Homework3
 
         private static int Task3(double number)
         {
-            int minNumber = (int)Math.Sqrt(number/2); //здесь вместо 2 может быть любое число >1, чем ближе оно 1 тем меньшее кол-во итераций цикла понадобится, при =1 вырождается во второй вариант решения
+            int minNumber = (int)Math.Sqrt(number / 2); //здесь вместо 2 может быть любое число >1, чем ближе оно 1 тем меньшее кол-во итераций цикла понадобится, при =1 вырождается во второй вариант решения
 
             while (true)
             {
@@ -128,7 +128,8 @@ namespace Homework3
 
         private static int Task5(int a, int b)
         {
-            if (a > b) {
+            if (a > b)
+            {
                 Swap(ref a, ref b);
             }
 
@@ -136,7 +137,8 @@ namespace Homework3
 
             for (int i = a; i <= b; i++)
             {
-                if (i % 7 == 0) {
+                if (i % 7 == 0)
+                {
                     result += i;
                 }
             }
@@ -161,7 +163,8 @@ namespace Homework3
 
         private static int Task7(int a, int b)
         {
-            if (a < b) {
+            if (a < b)
+            {
                 Swap(ref a, ref b);
             }
 
@@ -181,7 +184,7 @@ namespace Homework3
             }
             while (remainder != 0);
 
-            return b; 
+            return b;
         }
 
         private static double Task8(double number)
@@ -260,7 +263,7 @@ namespace Homework3
                 }
                 number = number / 10;
             }
-            while (number!= 0);
+            while (number != 0);
 
             return countOddDigits;
         }
@@ -269,7 +272,7 @@ namespace Homework3
         {
             int reversedNumber = 0;
 
-            while (number>0)
+            while (number > 0)
             {
                 int remainder = number % 10;
                 reversedNumber = reversedNumber * 10 + remainder;
@@ -304,7 +307,8 @@ namespace Homework3
                 }
                 while (number != 0);
 
-                if (countEven > countOdd) {
+                if (countEven > countOdd)
+                {
                     ++totalEvenNumber;
                 }
             }
@@ -332,7 +336,7 @@ namespace Homework3
                     number = number / 10;
                 }
                 while (number != 0);
-               
+
                 if (countEven > countOdd)
                 {
                     listEvenNumbers[listPosition] = i;
@@ -346,7 +350,7 @@ namespace Homework3
         public static string Task12(int number1, int number2)
         {
             int number1Abs = Math.Abs(number1);
-            int number2Abs = Math.Abs(number2); 
+            int number2Abs = Math.Abs(number2);
 
             while (number1Abs > 0)
             {
@@ -357,7 +361,7 @@ namespace Homework3
                 {
                     int remainder2 = tempNumber2 % 10;
 
-                    if (remainder1 == remainder2) 
+                    if (remainder1 == remainder2)
                     {
                         return "ДА";
                     }
@@ -371,7 +375,8 @@ namespace Homework3
             return "НЕТ";
         }
 
-        private static void Swap(ref int a, ref int b) {
+        private static void Swap(ref int a, ref int b)
+        {
             int temp = a;
             a = b;
             b = temp;
