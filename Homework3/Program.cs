@@ -163,7 +163,7 @@ namespace Homework3
                 }
             }
             while (true);
-
+            var tt = 0;
 
             double precision;
             double result;
