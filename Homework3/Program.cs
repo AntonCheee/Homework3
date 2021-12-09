@@ -12,7 +12,7 @@ namespace Homework3
             //    Console.WriteLine(result[i]);
             //    }
 
-            var result = Task4(8);
+            var result = Task4(22);
             Console.WriteLine(result);
         }
 
@@ -106,7 +106,6 @@ namespace Homework3
 
             return count;
         }
-
 
         private static int Task4(int number)
         {
@@ -225,7 +224,7 @@ namespace Homework3
                 }
                 while (true);
             }
-            
+
             double precision;
             double result;
 
