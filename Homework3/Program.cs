@@ -27,7 +27,7 @@ namespace Homework3
                     result *= number;
                 }
             }
-            else if (degree < 0 )
+            else if (degree < 0)
             {
                 for (int i = 1; i <= Math.Abs(degree); i++)
                 {
@@ -155,7 +155,7 @@ namespace Homework3
             {
                 Swap(ref a, ref b);
             }
-            
+
             int result = 1;
 
             while (true)
